@@ -49,19 +49,19 @@ function verifyPin() {
     const pin = document.getElementById('display-pin').value;
     const typedNumbers = document.getElementById('typed-numbers').value;
 
-    console.log(pin);
-    const successMessage = document.getElementById('notify-success');
 
-    const failMessage = document.getElementById('notify-fail');
+    let pinUpdate = document.getElementById('pin-update');
 
     if (pin != '') {
         if (pin == typedNumbers) {
-            successMessage.style.display = 'block';
-            failMessage.style.display = 'none';
+
+            pinUpdate.innerText = 'Congratulations Pin Matched';
+
         }
         else {
-            failMessage.style.display = 'block';
-            successMessage.style.display = 'none';
+
+
+
             count -= 1;
 
             var tryCounter = document.getElementById('try-counter');
@@ -69,7 +69,8 @@ function verifyPin() {
 
 
             if (count == 0) {
-                window.location.href = 'index.html';
+                pinUpdate.innerText = 'Invalid Pin! Please try again.';
+
             }
 
         }
